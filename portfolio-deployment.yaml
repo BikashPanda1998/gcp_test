@@ -1,0 +1,19 @@
+kind: Deployment
+metadata:
+  name: Portfolio
+spec:
+  replicas: 4
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: my-portfolio
+  template:
+    metadata:
+      labels:
+        app: my-portfolio
+    spec:
+      containers:
+        - image: bikashpanda1998/my-portfolio:V-1
+          name: my-portfolio
+          ports:
+            - containerPort: 80
